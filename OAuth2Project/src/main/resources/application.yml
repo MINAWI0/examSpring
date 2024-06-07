@@ -1,0 +1,24 @@
+spring:
+  security:
+    oauth2.client:
+      registration:
+        twitter:
+          clientId: 'client_id'
+          clientSecret: 'client_secret'
+          clientAuthenticationMethod: POST
+          authorizationGrantType: authorization_code
+          redirectUri: "{baseUrl}/login/oauth2/code/twitter"
+          scope:
+            - users.read
+            - tweet.read
+          clientName: Twitter
+      # Provider 설정
+      provider:
+        twitter:
+          authorizationUri: https://twitter.com/i/oauth2/authorize
+          tokenUri: https://api.twitter.com/2/oauth2/token
+          userInfoUri: https://api.twitter.com/2/users/me
+          userNameAttribute: user
+
+
+#          all of this is not working !!
